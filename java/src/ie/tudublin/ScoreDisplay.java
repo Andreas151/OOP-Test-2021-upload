@@ -27,7 +27,7 @@ public class ScoreDisplay extends PApplet
 	{
 		colorMode(RGB);
 		background(255);
-		//fillarray();
+		fillarray(score);
 	
 		
 	}
@@ -67,13 +67,13 @@ public class ScoreDisplay extends PApplet
 		
 	}
 
-	public void fillarray()
+	public void fillarray(String score)
 	{
 			/*creating a character array to easy loop throuh them and assignthem to Note. using a J variable to check next index
 		if next index is not a char skip it on the next runthrough as i dont need to start off from an integer.
 		*/
 		char[] notearray = score.toCharArray();
-		for(int i = 0; i<notearray.length+1; i++){
+		for(int i = 0; i<notearray.length-1; i++){
 			int j=i+1;
 			if(j > notearray.length)
 			{
@@ -82,12 +82,14 @@ public class ScoreDisplay extends PApplet
 			}
 			if( Character.isDigit(notearray[j]))
 			{
-				notescore.add(i,j);
+				Note temp = new Note(notearray[i],j);
+				notescore.add(temp);
 				i=j;
 			}
 			else
 			{
-				notescore.add(i,1);
+				Note temp = new Note(notearray[i],j);
+				notescore.add(temp);
 			}
 		
 		}
