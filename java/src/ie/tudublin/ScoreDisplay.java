@@ -28,7 +28,7 @@ public class ScoreDisplay extends PApplet
 		colorMode(RGB);
 		background(255);
 		fillarray(score);
-	
+		Printscore();
 		
 	}
 	public void Printscore(){
